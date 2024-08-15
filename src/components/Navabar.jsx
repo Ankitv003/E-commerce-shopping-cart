@@ -10,7 +10,7 @@ const Navbar = () => {
         </li>
         <li className="nav-lists">
           <a href="" className="nav-links">
-            View Cart
+            Cart
           </a>
         </li>
       </ul>
