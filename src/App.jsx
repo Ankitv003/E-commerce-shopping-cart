@@ -12,7 +12,11 @@ function App() {
         console.log(data);
       });
   }, []);
-
+  // const addToCart = (id) => {
+  //   productList.filter((productItem) => {
+  //     return productItem.id === id;
+  //   });
+  // };
   return (
     <>
       <Navbar />
@@ -24,6 +28,7 @@ function App() {
               name={productitem.title}
               price={productitem.price}
               key={productitem.id}
+              addToCart={addToCart}
             />
           );
         })}
