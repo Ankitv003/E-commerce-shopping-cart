@@ -187,6 +187,234 @@ button:focus-visible {
   gap: 1em;
 }
 
+/* Background Overlay when Modal is Open */
+.overlay {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Disable click events outside modal when open */
+body.modal-open {
+  pointer-events: none;
+}
+
+body.modal-open .cart-modal {
+  pointer-events: all;
+}
+::-webkit-scrollbar {
+  width: 1px;
+  display: none;
+}
+
+/*
+MARK:Cart
+ */
+/* Overlay */
+.cart-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.cart-items-section {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+/* Modal Container */
+.cart-modal-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.cart-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-modal-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.order-message {
+  color: green;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.added-message {
+  color: green;
+  font-weight: bold;
+  background-color: #e6f7e6;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-style: italic;
+}
+
+/* Cart Items Section */
+.cart-items-section {
+  margin-top: 20px;
+  min-height: 50vh;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.cart-item-name {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.cart-item-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: red;
+}
+
+/* Summary Section */
+.cart-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.discount {
+  color: green;
+}
+
+.total {
+  font-weight: bold;
+}
+
+/* Inputs Section */
+.inputs-section {
+  margin-top: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+}
+
+/* Checkout Button */
+.checkout-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.checkout-button:hover {
+  background-color: #218838;
+}
+
+/* Discount Buttons */
+.discount-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.discount-buttons button {
+  width: 48%;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.discount-buttons button:hover {
+  background-color: #e0e0e0;
+}
+
+/*
+MARK:Media-Queries
+ */
+
 @media (max-width: 768px) {
   .product-container {
     place-items: center;
