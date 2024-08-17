@@ -25,7 +25,9 @@ const ProductCard = (props) => {
         {props.isAdded ? (
           <span className="added-message">Added to Cart</span>
         ) : (
-          <button onClick={props.addToCart}>Add to Cart</button>
+          <button className="product-add-cart-btn" onClick={props.addToCart}>
+            Add to Cart
+          </button>
         )}
       </div>
     </div>

@@ -149,18 +149,6 @@ MARK:Product
   height: 150px;
 }
 
-button {
-  border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: gold;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  width: 100%;
-}
 .product-name {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -173,6 +161,27 @@ button {
 .product-price {
   font-family: inherit;
   color: #6b7280;
+}
+
+.product-add-cart-btn {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: gold;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  width: 100%;
+}
+button {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 button:hover {
   border-color: #646cff;
@@ -222,11 +231,6 @@ MARK:Cart
   align-items: center;
   z-index: 999;
 }
-.cart-items-section {
-  max-height: 300px;
-  overflow-y: auto;
-  margin-top: 20px;
-}
 /* Modal Container */
 .cart-modal-container {
   background-color: white;
@@ -245,12 +249,20 @@ MARK:Cart
 .cart-modal-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .cart-modal-header h2 {
   font-size: 20px;
-  margin: 0;
+  margin: 0 auto;
+  border: 2px solid #111827;
+  padding: 0.2em 0.75em;
+  border-radius: 30px;
+  background-color: #111827;
+  color: #fff;
+
+  text-align: center;
+  width: 150px;
 }
 
 .back-button {
@@ -262,8 +274,9 @@ MARK:Cart
 
 .order-message {
   color: green;
-  font-size: 14px;
-  margin-left: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 700;
 }
 .added-message {
   color: green;
@@ -273,11 +286,17 @@ MARK:Cart
   border-radius: 5px;
   font-style: italic;
 }
+.empty-cart-text {
+  color: red;
+  text-align: center;
+  margin-left: 2.5em;
+}
 
 /* Cart Items Section */
 .cart-items-section {
   margin-top: 20px;
   min-height: 50vh;
+  overflow-y: auto;
 }
 
 .cart-item {
@@ -287,10 +306,17 @@ MARK:Cart
   padding: 10px 0;
   border-bottom: 1px solid #e0e0e0;
 }
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: red;
+  float: right;
+}
 
 .cart-item-image {
-  width: 60px;
-  height: 60px;
+  width: 120px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -324,14 +350,6 @@ MARK:Cart
   font-size: 16px;
   font-weight: 600;
   color: #333;
-}
-
-.remove-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: red;
 }
 
 /* Summary Section */
@@ -420,8 +438,35 @@ MARK:Media-Queries
     place-items: center;
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .cart-modal-container {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100%;
+    border-radius: unset;
+  }
+  .cart-item {
+    justify-content: space-between;
+  }
 }
 
+@media (min-width: 570px) and (max-width: 769px) {
+  .product-container {
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 570px) and (max-width: 648px) {
+    .nav {
+      width: 112%;
+    }
+    .cart-modal-overlay {
+      width: 112vw;
+      height: 100%;
+    }
+  }
+}
 @media (min-width: 769px) and (max-width: 1000px) {
   .product-container {
     place-items: center;
