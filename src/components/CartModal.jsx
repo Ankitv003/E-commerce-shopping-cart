@@ -131,7 +131,7 @@ const CartModal = ({
                   <input
                     id="number"
                     required
-                    type="tel"
+                    type="number"
                     placeholder="+91"
                     className="input-field phone-input"
                     pattern="[0-9]{10}"
