@@ -13,8 +13,8 @@ body {
 }
 
 /* 
-* MARK:Navbar 
-*/
+  * MARK:Navbar 
+  */
 
 .nav {
   display: flex;
@@ -25,9 +25,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 30;
-  border-bottom: 1px solid rgba(115, 115, 115, 0.6); /* neutral-300/60 */
-  background-color: rgba(255, 255, 255, 0.6); /* white/60 */
-  backdrop-filter: blur(8px); /* backdrop-blur-md */
+  border-bottom: 1px solid rgba(115, 115, 115, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
 }
 .nav-img {
   max-width: 100%;
@@ -45,14 +45,14 @@ body {
 
 .nav-links {
   color: #4b5563;
-  font-size: 1rem; /* text-sm */
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   margin-right: 2em;
 }
 /*
-MARK:Product
- */
+  MARK:Product
+  */
 .product-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -66,7 +66,6 @@ MARK:Product
   margin: 1em;
   padding: 1em;
   border: 1px solid #e5e7eb;
-  /* #e5e7eb */
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -175,8 +174,8 @@ body.modal-open .cart-modal {
 }
 
 /*
-MARK:Cart
- */
+  MARK:Cart
+  */
 /* Overlay */
 .cart-modal-overlay {
   position: fixed;
@@ -184,7 +183,7 @@ MARK:Cart
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,7 +232,7 @@ MARK:Cart
 
 .order-message {
   color: green;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
   font-weight: 700;
 }
@@ -245,7 +244,7 @@ MARK:Cart
   padding: 0.5em 1em;
   border-radius: 5px;
   font-style: italic;
-  overflow: hidden; /* Ensure that overflow doesn't affect the swoosh */
+  overflow: hidden;
   position: relative;
   animation: swooshIn 0.5s ease-out forwards;
   margin-bottom: 0.5em;
@@ -255,16 +254,16 @@ MARK:Cart
 @keyframes swooshIn {
   0% {
     opacity: 0;
-    transform: translateX(100%); /* Start from right */
+    transform: translateX(100%);
   }
   50% {
     opacity: 1;
-    color: lightgreen; /* Change color during swoosh */
-    transform: translateX(-10%); /* Move left, overshoot */
+    color: lightgreen;
+    transform: translateX(-10%);
   }
   100% {
-    color: green; /* Final color */
-    transform: translateX(0); /* Rest in position */
+    color: green;
+    transform: translateX(0);
   }
 }
 
@@ -410,10 +409,24 @@ MARK:Cart
 .discount-buttons button:hover {
   background-color: #e0e0e0;
 }
+label {
+  margin-left: 0.2em;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
 /*
-MARK:Media-Queries
- */
+  MARK:Media-Queries
+  */
 
 @media (max-width: 768px) {
   .product-container {

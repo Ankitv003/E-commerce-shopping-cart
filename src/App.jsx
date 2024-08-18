@@ -7,7 +7,7 @@ function App() {
   const [productList, setProductList] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [showCartModal, setShowCartModal] = useState(false);
-  const [discount, setDiscount] = useState(0); // Discount percentage
+  const [discount, setDiscount] = useState(0);
   const [orderMessage, setOrderMessage] = useState("");
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function App() {
 
   const updateCartItem = (id, newQuantity) => {
     if (newQuantity < 1) {
-      removeCartItem(id); // Automatically remove if quantity is less than 1
+      removeCartItem(id);
     } else {
       setCartItems((prevItems) =>
         prevItems.map((item) =>
@@ -44,25 +44,46 @@ function App() {
   };
 
   const removeCartItem = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setCartItems((prevItems) => {
+      const updatedItems = prevItems.filter((item) => item.id !== id);
+
+      if (updatedItems.length === 0) {
+        setDiscount(0);
+      }
+
+      return updatedItems;
+    });
   };
 
   const openCartModal = () => setShowCartModal(true);
   const closeCartModal = () => setShowCartModal(false);
 
   const applyDiscount = (percent) => {
-    setDiscount(percent);
+    if (cartItems.length > 0) {
+      setDiscount(percent);
+    }
   };
 
-  const checkout = () => {
-    setOrderMessage(
-      "Thank you for your order, your item will soon be shipped."
-    );
-    setTimeout(() => {
-      setCartItems([]);
-      setOrderMessage("");
-      setShowCartModal(false);
-    }, 3000); // Close modal after 3 seconds
+  const checkout = (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const number = document.getElementById("number").value;
+
+    let countdown = 10;
+    const timer = setInterval(() => {
+      setOrderMessage(
+        `Thank you for your order, ${name}! Your items will soon be shipped. We will contact you at ${number}. Closing in ${countdown}...`
+      );
+      countdown -= 1;
+      if (countdown < 0) {
+        clearInterval(timer);
+        setCartItems([]);
+        setDiscount(0);
+        setOrderMessage("");
+        setShowCartModal(false);
+      }
+    }, 1000);
   };
 
   const calculateSubtotal = () => {
@@ -73,7 +94,7 @@ function App() {
     const subtotal = calculateSubtotal();
     const discountAmount = subtotal * (discount / 100);
     const total = subtotal - discountAmount;
-    return total >= 0 ? total : 0; // Prevent negative totals
+    return total >= 0 ? total : 0;
   };
 
   const isAddedToCart = (id) => {

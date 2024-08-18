@@ -6,7 +6,6 @@ import {
   faTimes,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-
 const CartModal = ({
   cartItems,
   updateCartItem,
@@ -118,8 +117,8 @@ const CartModal = ({
                   </button>
                 </div>
 
-                {/* Coupon & Phone Number Input */}
-                <div className="inputs-section">
+                {/* Name and Phone Number Form */}
+                <form className="inputs-section" onSubmit={checkout}>
                   <label htmlFor="name">Name</label>
                   <input
                     id="name"
@@ -128,19 +127,19 @@ const CartModal = ({
                     placeholder="Enter Your Name"
                     className="input-field"
                   />
-                  <label htmlFor="number">Number</label>
+                  <label htmlFor="number">Contact Number</label>
                   <input
                     id="number"
                     required
                     type="tel"
                     placeholder="+91"
                     className="input-field phone-input"
+                    pattern="[0-9]{10}"
                   />
-                </div>
-
-                <button onClick={checkout} className="checkout-button">
-                  Checkout
-                </button>
+                  <button type="submit" className="checkout-button">
+                    Checkout
+                  </button>
+                </form>
               </>
             )}
           </>
@@ -149,5 +148,4 @@ const CartModal = ({
     </div>
   );
 };
-
 export default CartModal;
