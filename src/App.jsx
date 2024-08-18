@@ -62,7 +62,7 @@ function App() {
       setCartItems([]);
       setOrderMessage("");
       setShowCartModal(false);
-    }, 5000); // Close modal after 3 seconds
+    }, 3000); // Close modal after 3 seconds
   };
 
   const calculateSubtotal = () => {

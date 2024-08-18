@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
   faMinus,
-  faTrash,
+  faTimes,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -57,7 +57,7 @@ const CartModal = ({
                           onClick={() => removeCartItem(item.id)}
                           className="remove-btn"
                         >
-                          <FontAwesomeIcon icon={faTrash} />
+                          <FontAwesomeIcon icon={faTimes} />
                         </button>
                         <p className="cart-item-name">{item.title}</p>
                         <div className="quantity-controls">
@@ -120,12 +120,18 @@ const CartModal = ({
 
                 {/* Coupon & Phone Number Input */}
                 <div className="inputs-section">
+                  <label htmlFor="name">Name</label>
                   <input
+                    id="name"
+                    required
                     type="text"
-                    placeholder="Enter coupon code"
+                    placeholder="Enter Your Name"
                     className="input-field"
                   />
+                  <label htmlFor="number">Number</label>
                   <input
+                    id="number"
+                    required
                     type="tel"
                     placeholder="+91"
                     className="input-field phone-input"
